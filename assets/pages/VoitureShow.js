@@ -5,7 +5,7 @@ import axios from 'axios';
   
 function VoitureShow() {
     const [id, setId] = useState(useParams().id)
-    const [voiture, setVoiture] = useState({model:'', kmh:''})
+    const [voiture, setVoiture] = useState({model:'', kmh:'', caracteristiques:''})
     useEffect(() => {
         axios.get(`/api/voiture/${id}`)
         .then(function (response) {
@@ -32,6 +32,8 @@ function VoitureShow() {
                         <p>{voiture.model}</p>
                         <b className="text-muted">Kmh:</b>
                         <p>{voiture.kmh}</p>
+                        <b className="text-muted">Caracteristiques:</b>
+                        <p>{voiture.caracteristiques}</p>
                     </div>
                 </div>
             </div>
